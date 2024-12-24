@@ -1,0 +1,127 @@
+html, body, form {
+    height: 100%;
+    margin: 0;
+    font-family: "Inter", sans-serif;
+}
+
+body {
+    background: url("https://img.freepik.com/free-photo/book-turning-pages_1150-146.jpg?w=900&t=st=1723660283~exp=1723660883~hmac=36b8bce0e841ed57b9253bb7a896517eeb66a29719dbdb9befd516fecc0523d2") center/cover no-repeat;
+    backdrop-filter: blur(2px);
+}
+
+.page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    gap: 50px;
+}
+
+.image_button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.book_image {
+    width: 300px;
+    height: 500px;
+    background-color: #f0d9b5;
+}
+
+
+.button {
+    padding: 8px;
+    width: 150px;
+    font-size: 15px;
+    font-weight: bold;
+    color: #FFFFFF;
+    background: #134B70;
+    border-radius: 20px;
+    border: none;
+}
+
+.button:hover {
+    opacity: 0.9;
+}
+
+.popup-available {
+    width: 200px;
+    padding: 10px;
+    background: #FFFFFF;
+    border-radius: 6px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    visibility: hidden;
+}
+
+.popup-not-available {
+    width: 200px;
+    padding: 10px;
+    background: #FFFFFF;
+    border-radius: 6px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    visibility: hidden;
+}
+
+.open-popup {
+    visibility: visible;
+}
+
+.cancel-reserve {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    gap: 10px;
+}
+
+.cancel,.reserve {
+    border: none;
+    background: none;
+    color: #201E43;
+    cursor: pointer;
+}
+
+.details {
+    max-width: 400px;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.container h3:not(.date) {
+    min-width: 120px;
+    margin-right: 60px;
+    color: #134B70;
+    font-weight: bolder;
+    text-shadow: -1px -1px 0 #FFFFFF, 0 -1px 0 #FFFFFF, 1px -1px 0 #FFFFFF,
+                 1px  0  0 #FFFFFF, 1px  1px 0 #FFFFFF, 0  1px 0 #FFFFFF,
+                -1px  1px 0 #FFFFFF, -1px  0  0 #FFFFFF;
+}
+
+.date {
+    margin-right: 30px;
+    color: #134B70;
+    text-shadow: -1px -1px 0 #FFFFFF, 0 -1px 0 #FFFFFF, 1px -1px 0 #FFFFFF,
+                 1px  0  0 #FFFFFF, 1px  1px 0 #FFFFFF, 0  1px 0 #FFFFFF,
+                -1px  1px 0 #FFFFFF, -1px  0  0 #FFFFFF;
+}
+
+.label {
+    font-weight: bold;
+}
+
+.summary {
+    max-width: 1000px;
+    text-align: left;
+    word-wrap: break-word;
+}

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="icon" href="https://w7.pngwing.com/pngs/606/201/png-transparent-mississauga-library-system-school-library-public-library-online-public-access-catalog-library-miscellaneous-trademark-logo-thumbnail.png">
+    <link rel="stylesheet" href="login_page.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <form class="form">
+        <div class="login_page">
+            <div class="login_box">
+                <h1 class="login_text">LOGIN</h1>
+                <div class="email container">
+                    <input type="email" class="email input" name="email" required>
+                    <label class="label email">Email</label>
+                </div>
+                <div class="password container">
+                    <input type="password" class="password input" name="password" required>
+                    <label class="label password">Password</label>
+                </div>
+                <button class="login_button" type="submit">Login</button>
+                <p class="account">Don't have an account?<span onclick="goToPage('../signup_page/signup_page.html')" class="signup">Signup</span></p>
+                <img class="logo" src="https://w7.pngwing.com/pngs/606/201/png-transparent-mississauga-library-system-school-library-public-library-online-public-access-catalog-library-miscellaneous-trademark-logo-thumbnail.png">
+                <h3 class="library_name">PHEONIX Library</h3>
+            </div>
+        </div>
+    </form>
+    <script src="login_page.js"></script>
+</body>
+</html>

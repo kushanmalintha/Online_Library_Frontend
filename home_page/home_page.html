@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome Page</title>
+    <link rel="icon" href="https://w7.pngwing.com/pngs/606/201/png-transparent-mississauga-library-system-school-library-public-library-online-public-access-catalog-library-miscellaneous-trademark-logo-thumbnail.png">
+    <link rel="stylesheet" href="home_page.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div id="setting-container" class="setting-container" style="display: none;">
+        <form class="form">
+            <button class="settings" type="submit">
+                <span class="material-icons">settings</span>
+            </button> 
+        </form>
+    </div>           
+    <div class="page1">
+        <div class="title">
+            <img class="logo" src="https://w7.pngwing.com/pngs/606/201/png-transparent-mississauga-library-system-school-library-public-library-online-public-access-catalog-library-miscellaneous-trademark-logo-thumbnail.png">
+            <h1 class="library_name">Pheonix Library</h1>
+        </div>
+        <div class="search-container">
+            <input type="text" class="search" id="search-bar" placeholder="Search books, author, genres...">
+            <i class="fas fa-search search-icon" onclick="handleSearch()"></i>
+            <i class="fas fa-sliders-h search-icon" onclick="toggleMenu()"></i>
+            <div class="menu-wrap" id="menu-wrap">
+                <div class="menu">
+                    <div class="item" onclick="selectType('book')">
+                        <span>Book</span>
+                        <hr>
+                    </div>
+                    <div class="item" onclick="selectType('author')">
+                        <span>Author</span>
+                        <hr>
+                    </div>
+                    <div class="item" onclick="selectType('genre')">
+                        <span>Genre</span>
+                    </div>
+                </div>
+            </div>
+        </div>        
+    </div>
+    <div class="page2">
+        <h2 class="aboutus">About Us</h2>
+        <div class="details">
+            <div class="container">
+                <h3>Phone No:</h3>
+                <label>0123456789</label>
+            </div>
+            <div class="container">
+                <h3>Email:</h3>
+                <label>pheonixlibrary@gmail.com</label>
+            </div>
+            <div class="container">
+                <h3>Location:</h3>
+                <label><a href="https://maps.app.goo.gl/edjhYry2sthjQZoJ7">View on Map</a></label>
+            </div>
+            <div class="container">
+                <h3>Open hours:</h3>
+                <label>9.00 a.m - 4.00 p.m</label>
+            </div>
+            <div class="container-announcement">
+            </div>
+            <h3>Feedback and Suggestions:</h3>
+            <textarea class="feedback" rows="4" cols="50" placeholder="Enter your feedback here..."></textarea>
+            <button class="submit" onclick="feedback()">Submit</button>
+        </div>
+    </div>
+    <script src="../functions/global.js"></script>
+    <script src="home_page.js"></script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Reserve Page</title>
+    <link rel="icon" href="https://w7.pngwing.com/pngs/606/201/png-transparent-mississauga-library-system-school-library-public-library-online-public-access-catalog-library-miscellaneous-trademark-logo-thumbnail.png">
+    <link rel="stylesheet" href="book_reserve_page.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="page">
+        <form class="form">
+            <div class="form-section">
+                <div class="container">
+                    <h3>Member Name</h3>
+                    <h4 id="member_name"></h4>
+                </div>
+                <div class="container">
+                    <h3>Member ID</h3>
+                    <h4 id="member_id"></h4>
+                </div>
+                <div class="container">
+                    <h3>Pickup Date</h3>
+                    <input type="date" name="borrow_date" required>
+                </div>
+                <div class="container">
+                    <h3>Number of Days to Loan</h3>
+                    <input class="pickup" type="number" name="loan_days" required>
+                </div>
+            </div>
+            <div class="button-section">
+                <button class="submit-button" type="button" onclick="openPopup()">Submit</button>
+                <div class="popup" id="popup">
+                <h3>Book Reservation</h3>
+                <p>Confirm your reservation<br>Reservation code:<span id="reservationId"></span></p>
+                <div class="cancel-confirm">
+                    <button class="confirm" type="submit" onsubmit="submitTransaction()">Confirm</button>
+                    <button class="cancel" onclick="closePopup()">Cancel</button>
+                </div>
+                </div>
+                <button class="cancel-button" type="button" onclick="cancelReservation()">Cancel</button>
+            </div>
+        </form>
+        <div class="policy-section">
+            <h3>Reservation Policy</h3>
+            <ul>
+                <li>Reservation Period: Reserved books will be held for 7 days from the date of reservation. If the book is not collected within this period, the reservation will be automatically canceled.</li>
+                <li>Loan Duration: When reserving a book, members can choose a loan period ranging from 7 to 30 days. The return date will be based on the chosen loan period and is non-extendable.</li>
+                <li>Pickup: Reserved books can be picked up at the specified library location. Members must present their membership ID or reservation code when collecting their reserved books.</li>
+                <li>Multiple Reservations: Members can reserve up to 3 books at a time. If a reserved book becomes unavailable, members will be notified and may choose to reserve an alternative title.</li>
+            </ul>
+        </div>
+    </div>
+    <script src="../functions/global.js"></script>
+    <script src="book_reserve_page.js"></script>
+</body>
+</html>

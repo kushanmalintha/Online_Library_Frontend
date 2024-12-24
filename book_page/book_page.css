@@ -1,0 +1,41 @@
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    background: url("https://img.freepik.com/free-photo/book-turning-pages_1150-146.jpg?w=900&t=st=1723660283~exp=1723660883~hmac=36b8bce0e841ed57b9253bb7a896517eeb66a29719dbdb9befd516fecc0523d2") center / cover no-repeat fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: 1fr 1fr;
+    gap: 20px;
+    margin-top: 80px;
+    padding: 20px;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.book {
+    background-color: #f0d9b5;
+    padding: 10px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.book img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.book h3 {
+    margin-top: 10px;
+    font-size: 16px;
+}

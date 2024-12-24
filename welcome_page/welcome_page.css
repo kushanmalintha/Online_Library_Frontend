@@ -1,0 +1,105 @@
+html, body {
+    height: 100%;
+}
+
+body {
+    background-image: url("https://img.freepik.com/free-photo/book-turning-pages_1150-146.jpg?w=900&t=st=1723660283~exp=1723660883~hmac=36b8bce0e841ed57b9253bb7a896517eeb66a29719dbdb9befd516fecc0523d2");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.logo_name {
+    display: flex;
+    flex-direction: row;
+    margin-left: 10px;
+}
+
+.logo {
+    height: 50px;
+    width: 50px;
+}
+
+.welcome_page_content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.library_name {
+    font-family: "Inter", sans-serif;
+    font-size: 32px;
+    font-weight: bold;
+    background-image: linear-gradient(90deg, #134B70 25%, #201E43 75%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-top: 10px;
+    margin-left: 20px;
+}
+
+.welcome_title {
+    font-family: "Dosis", sans-serif;
+    font-size: 60px;
+    font-weight: bolder;
+    color: #8576FF;
+    margin-top: -30px;
+}
+.welcome_title,.welcome_para1,.welcome_para2 {
+    text-shadow:
+        -1px -1px 0 #FFFFFF,
+         0   -1px 0 #FFFFFF,
+         1px -1px 0 #FFFFFF,
+         1px  0   0 #FFFFFF,
+         1px  1px 0 #FFFFFF,
+         0    1px 0 #FFFFFF,
+        -1px  1px 0 #FFFFFF,
+        -1px  0   0 #FFFFFF;
+}
+
+.welcome_para1, .welcome_para2 {
+    font-family: "Inter", sans-serif;
+    font-weight: bold;
+    color: #134B70;
+}
+
+.welcome_para1 {
+    font-size: 24px;
+    margin-top: 20px;
+}
+
+.welcome_para2 {
+    font-size: 22px;
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+
+.login_signup {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login_button, .signup_button {
+   height: 45px;
+   width: 150px;
+   background-color: #134B70;
+   color: #FFFFFF;
+   border-radius: 25px;
+   border: none;
+   font-family: "Inter", sans-serif;   
+   font-size: 20px;
+   font-weight: 600;
+   margin-bottom: 15px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   text-align: center;
+   cursor: pointer;
+}
+
+.login_button:hover, .signup_button:hover {
+    opacity: 0.9;
+}

@@ -1,0 +1,185 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    font-family: "Inter", sans-serif;
+}
+
+body {
+    background: url("https://img.freepik.com/free-photo/book-turning-pages_1150-146.jpg?w=900&t=st=1723660283~exp=1723660883~hmac=36b8bce0e841ed57b9253bb7a896517eeb66a29719dbdb9befd516fecc0523d2") center / cover no-repeat fixed;
+}
+
+.page1 {
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.setting-container {
+    margin: 5px;
+    justify-content: end;
+}
+
+.title, .search-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    height: 60px;
+    width: 60px;
+}
+
+.library_name {
+    font-size: 40px;
+    font-weight: bold;
+    background-image: linear-gradient(90deg, #134B70 25%, #201E43 75%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-left: 10px;
+}
+
+.search-container {
+    position: relative;
+    width: 600px;
+}
+
+.search {
+    height: 50px;
+    width: 100%;
+    border-radius: 40px;
+    padding: 0 50px 0 20px;
+    font-size: 16px;
+    border: none;
+    outline: none;
+}
+
+.search-icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #201E43;
+    font-size: 20px;
+}
+
+.search-icon.fa-search {
+    right: 50px;
+}
+
+.search-icon.fa-sliders-h {
+    right: 20px;
+}
+
+.search-icon.fa-search:hover,.search-icon.fa-sliders-h:hover {
+    opacity: 0.8;
+}
+
+.menu-wrap{
+    position: absolute;
+    top: 100%;
+    right: 5%;
+    width: 120px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s;
+    border-radius: 12px;
+}
+
+.menu-wrap.open-menu {
+    max-height: 120px;
+}
+
+.menu {
+    background: #FFFFFF;
+    padding: 10px;
+    margin: 5px;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 5px;
+    font-weight: bold;
+    color: #201E43;
+    cursor: pointer;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    width: 100%;
+    background: #CCC;
+    margin: 5px 0;
+}
+
+.page2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.aboutus {
+    font-size: 40px;
+    font-weight: bolder;
+    margin: 150px 0 20px 50px;
+}
+
+.details {
+    display: flex;
+    flex-direction: column;
+    margin-left: 150px;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.container-announcement {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    color: #134B70;
+    font-weight: bold;
+}
+
+.feedback {
+    width: 500px;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.submit {
+    width: 80px;
+    font-size: 15px;
+    background: #201E43;
+    color: #FFFFFF;
+    font-weight: bold;
+    margin: 10px 0 50px 400px;
+    border-radius: 20px;
+    padding: 5px;
+}
+
+h3 {
+    color: #201E43;
+    font-weight: bold;
+    margin-right: 10px;
+    text-shadow:
+        -1px -1px 0 #FFFFFF,
+         0   -1px 0 #FFFFFF,
+         1px -1px 0 #FFFFFF,
+         1px  0   0 #FFFFFF,
+         1px  1px 0 #FFFFFF,
+         0    1px 0 #FFFFFF,
+        -1px  1px 0 #FFFFFF,
+        -1px  0   0 #FFFFFF;
+}
+
+label {
+    color: #134B70;
+    font-weight: bold;
+}

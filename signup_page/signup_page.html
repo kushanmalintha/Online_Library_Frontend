@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup Page</title>
+    <link rel="icon" href="https://w7.pngwing.com/pngs/606/201/png-transparent-mississauga-library-system-school-library-public-library-online-public-access-catalog-library-miscellaneous-trademark-logo-thumbnail.png">
+    <link rel="stylesheet" href="signup_page.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <form class="form">
+        <div class="signup_page">
+            <div class="signup_box">
+                <h1 class="signup_text">SIGN UP</h1>
+                <div class="name container">
+                    <input type="text" class="name input" name="username" required>
+                    <label class="label name">Username</label>
+                </div>
+                <div class="email container">
+                    <input type="email" class="email input" name="email" required>
+                    <label class="label email">Email</label>
+                </div>
+                <div class="password container">
+                    <input type="password" class="password input" name="password" required>
+                    <label class="label password">Password</label>
+                </div>
+                <div class="number container">
+                    <input type="tel" class="number input" name="phone_no" required>
+                    <label class="label number">Phone Number</label>
+                </div>
+                <div class="membershipdate container">
+                    <input type="date" class="membershipdate input" name="membership_date" required>
+                    <label class="label membershipdate">Membership Date</label>
+                </div>
+                <button class="signup_button" type="submit">Sign up</button>
+                <p class="account">Already have an account?<span class="login" onclick="goToPage('../login_page/login_page.html')">Log in</span></p>
+                <img class="logo" src="https://w7.pngwing.com/pngs/606/201/png-transparent-mississauga-library-system-school-library-public-library-online-public-access-catalog-library-miscellaneous-trademark-logo-thumbnail.png">
+                <h3 class="library_name">PHEONIX Library</h3>
+            </div>
+        </div>
+    </form>
+    <script src="signup_page.js"></script>
+</body>
+</html>
