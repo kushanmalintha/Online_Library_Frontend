@@ -1,37 +1,85 @@
 html, body {
     height: 100%;
     font-family: 'Roboto Condensed', sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
 body {
     background: url("https://img.freepik.com/free-photo/book-turning-pages_1150-146.jpg?w=900&t=st=1723660283~exp=1723660883~hmac=36b8bce0e841ed57b9253bb7a896517eeb66a29719dbdb9befd516fecc0523d2") center / cover no-repeat fixed;
+    min-height: 100vh;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    height: 140vh;
+    justify-content: flex-start;
 }
 
-.container {
-    background-color: rgba(255, 255, 255, 0.8);
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    max-width: 400px;
-    width: 100%;
+.dashboard-container {
+    width: 100vw;
+    max-width: 1400px;
+    margin: 40px auto 0 auto;
+    padding: 24px;
+    background: rgba(255,255,255,0.5);
+    border-radius: 18px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+}
+
+.dashboard-title {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 32px;
+    color: #201E43;
+    letter-spacing: 1px;
+}
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 32px;
+}
+
+.dashboard-card {
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 2px 12px rgba(32,30,67,0.08);
+    padding: 28px 22px 22px 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    min-height: 320px;
+    position: relative;
+}
+
+.dashboard-card h2 {
+    font-size: 1.3rem;
+    color: #201E43;
+    margin-bottom: 10px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
 }
 
 .form-group {
-    margin-bottom: -10px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 .input-field, .textarea-field {
-    width: calc(100% - 24px);
-    padding: 10px;
-    margin-bottom: 10px;
+    width: 100%;
+    padding: 10px 12px;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 6px;
     box-sizing: border-box;
     font-size: 16px;
+    background: #f7f7fa;
+    transition: border 0.2s;
+}
+
+.input-field:focus, .textarea-field:focus {
+    border: 1.5px solid #201E43;
+    outline: none;
 }
 
 .textarea-field {
@@ -40,46 +88,56 @@ body {
 }
 
 .btn {
-    padding: 10px 15px;
+    padding: 10px 18px;
     border: none;
-    border-radius: 5px;
+    border-radius: 6px;
     font-size: 16px;
     cursor: pointer;
-    margin-right: 10px;
+    margin-right: 8px;
+    font-weight: 500;
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+    box-shadow: 0 1px 4px rgba(32,30,67,0.07);
 }
 
 .submit-btn {
     background-color: #28a745;
     color: white;
-    margin-bottom: 15px;
 }
 
 .clear-btn {
     background-color: #17a2b8;
     color: white;
-    margin-bottom: 15px;
 }
 
 .delete-btn {
     background-color: #dc3545;
     color: white;
-    margin-bottom: 15px;
 }
 
 .btn:hover {
-    opacity: 0.9;
+    opacity: 0.93;
+    box-shadow: 0 2px 8px rgba(32,30,67,0.13);
+}
+
+.button-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 4px;
 }
 
 .popup {
-    width: 200px;
-    padding: 10px;
+    width: 220px;
+    padding: 14px 12px;
     background: #FFFFFF;
-    border-radius: 6px;
+    border-radius: 8px;
     position: absolute;
     top: 60%;
     left: 50%;
     transform: translate(-50%, -50%);
     visibility: hidden;
+    box-shadow: 0 2px 12px rgba(32,30,67,0.13);
+    z-index: 10;
 }
 
 .popup.open-popup {
@@ -97,10 +155,62 @@ body {
     background: none;
     color: #201E43;
     cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
 }
 
-.button-row {
+.book-exist {
+    font-size: 0.98rem;
+    color: #555;
+    margin-bottom: 2px;
+}
+
+.reservation-details, .borrowed-books-list, .fine-info, .current-fine-rate {
+    background: #f7f7fa;
+    border-radius: 7px;
+    padding: 10px 14px;
+    margin-top: 10px;
+    font-size: 1rem;
+    color: #201E43;
+}
+
+.reservation-details p, .borrowed-books-list p, .fine-info p, .current-fine-rate p {
+    margin: 6px 0;
+}
+
+#borrowed-books {
+    list-style: disc inside;
+    margin: 8px 0 0 0;
+    padding: 0;
+    color: #201E43;
+}
+
+.borrowed-books-ul {
+    list-style: disc inside;
+    margin: 8px 0 0 0;
+    padding: 0;
+    color: #201E43;
+}
+.borrowed-books-ul li {
+    margin-bottom: 6px;
+    font-size: 1rem;
+    background: #f1f3fa;
+    border-radius: 5px;
+    padding: 6px 10px;
     display: flex;
+    flex-direction: row;
+    gap: 16px;
     align-items: center;
-    gap: 10px;
+}
+.return-book-form input[name="returnBookId"] {
+    margin-bottom: 8px;
+}
+
+@media (max-width: 900px) {
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+    .dashboard-container {
+        padding: 10px;
+    }
 }

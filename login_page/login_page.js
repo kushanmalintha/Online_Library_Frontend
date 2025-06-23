@@ -20,10 +20,17 @@ formLogin.addEventListener('submit', event => {
     .then(res => res.json())
     .then(responseData => {
         if (responseData.success) {
-            localStorage.setItem('user_id', responseData.user_id);
-            localStorage.setItem('accessToken', responseData.accessToken);
-            localStorage.setItem('username', responseData.username);
-            goToPage('../home_page/home_page.html');
+            sessionStorage.setItem('user_id', responseData.user_id);
+            sessionStorage.setItem('accessToken', responseData.accessToken);
+            sessionStorage.setItem('username', responseData.username);
+            // Check for redirectAfterLogin and redirect if present
+            const redirectPath = sessionStorage.getItem('redirectAfterLogin');
+            if (redirectPath) {
+                sessionStorage.removeItem('redirectAfterLogin');
+                window.location.href = redirectPath;
+            } else {
+                goToPage('../home_page/home_page.html');
+            }
         } else {
             alert(responseData.message);
         }

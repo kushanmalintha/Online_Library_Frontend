@@ -35,14 +35,14 @@ function submitTransaction() {
     const bookId = book.book_id;
     const token = getAccessToken();
 
-    fetch(`http://localhost:2000/api/transaction/${userId}/${bookId}`, {
+    handleAuthFetch(fetch(`http://localhost:2000/api/transaction/${userId}/${bookId}`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${token}`
         },
         body: JSON.stringify(data)
-    })
+    }))
     .then(res => res.json())
     .then(responseData => {
         if (responseData.success) {
@@ -52,8 +52,10 @@ function submitTransaction() {
         }
     })
     .catch(error => {
-        console.log("Error:", error);
-        alert(error.message);
+        if (error !== 'Unauthorized') {
+            console.log("Error:", error);
+            alert(error.message);
+        }
     });
 
     closePopup();
@@ -62,14 +64,16 @@ function submitTransaction() {
 function cancelReservation() {
     const reservationId = getReservationId();
     const token = getAccessToken();
+    const book = JSON.parse(sessionStorage.getItem('selectedBook'));
+    const bookId = book.book_id;
 
-    fetch(`http://localhost:2000/api/reservation/delete/${reservationId}`, {
+    handleAuthFetch(fetch(`http://localhost:2000/api/reservation/delete/${reservationId}/${bookId}`, {
         method: 'DELETE',
         headers: {
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${token}`
         },
-    })
+    }))
     .then(res => res.json())
     .then(responseData => {
         if (responseData.success) {
@@ -79,7 +83,9 @@ function cancelReservation() {
         }
     })
     .catch(error => {
-        console.log("Error:", error);
-        alert(error.message);
+        if (error !== 'Unauthorized') {
+            console.log("Error:", error);
+            alert(error.message);
+        }
     });
 }

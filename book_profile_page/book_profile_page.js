@@ -37,13 +37,13 @@ formCheckAvailability.addEventListener('submit', event => {
     const book = JSON.parse(sessionStorage.getItem('selectedBook'));
     const bookId = book.book_id;
 
-    fetch(`http://localhost:2000/api/availability/${bookId}`, {
+    handleAuthFetch(fetch(`http://localhost:2000/api/availability/${bookId}`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${token}`
         }
-    })
+    }))
     .then(res => res.json())
     .then(responseData => {
         if (responseData.message === 'available') {
@@ -53,8 +53,10 @@ formCheckAvailability.addEventListener('submit', event => {
         }
     })
     .catch(error => {
-        console.log("Error:", error);
-        alert(error.message);
+        if (error !== 'Unauthorized') {
+            console.log("Error:", error);
+            alert(error.message);
+        }
     });
 });
 
@@ -76,18 +78,18 @@ function attachReserveListener() {
             const reserveButton = document.querySelector('.reserve');
             reserveButton.disabled = true;
 
-            fetch(`http://localhost:2000/api/reserve/${userId}/${bookId}`, {
+            handleAuthFetch(fetch(`http://localhost:2000/api/reserve/${userId}/${bookId}`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${token}`
                 },
-            })
+            }))
             .then(res => res.json())
             .then(responseData => {
                 console.log(responseData);
                 if (responseData.success) {
-                    localStorage.setItem('reservationId', responseData.reservationId);
+                    sessionStorage.setItem('reservationId', responseData.reservationId);
                     goToPage('../book_reserve_page/book_reserve_page.html');
                 } else {
                     alert(responseData.message);
@@ -95,8 +97,10 @@ function attachReserveListener() {
                 }
             })
             .catch(error => {
-                console.log("Error:", error);
-                alert(error.message);
+                if (error !== 'Unauthorized') {
+                    console.log("Error:", error);
+                    alert(error.message);
+                }
                 reserveButton.disabled = false;
             });
         });

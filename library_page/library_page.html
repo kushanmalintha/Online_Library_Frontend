@@ -3,68 +3,141 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Library Page</title>
-    <link rel="icon" href="https://w7.pngwing.com/pngs/606/201/png-transparent-mississauga-library-system-school-library-public-library-online-public-access-catalog-library-miscellaneous-trademark-logo-thumbnail.png">
+    <title>Library Admin Dashboard</title>
+    <link rel="icon" href="https://img.icons8.com/?size=128&id=Cjj3nZq8ZHXS&format=png">
     <link rel="stylesheet" href="library_page.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="icon" href="https://img.icons8.com/?size=128&id=Cjj3nZq8ZHXS&format=png">
 </head>
 <body>
-    <div class="container">
-        <form class="delete-user">
-            <div class="form-group">
-                <input type="number" name="userId" placeholder="User ID" class="input-field" required>
-                <div class="popup" id="delete-popup">
-                    <h3>User Delete</h3>
-                    <p>Are you sure want to delete?</p>
-                    <div class="cancel-confirm">
-                        <button class="confirm" type="submit" onsubmit="deleteUser()">Confirm</button>
-                        <button class="cancel" onclick="closePopup('delete-popup')">Cancel</button>
+    <div class="dashboard-container">
+        <h1 class="dashboard-title">Library Admin Dashboard</h1>
+        <div class="dashboard-grid">
+            <!-- User Management Panel -->
+            <div class="dashboard-card">
+                <h2>User Management</h2>
+                <form class="delete-user">
+                    <div class="form-group">
+                        <input type="number" name="userId" placeholder="User ID" class="input-field" required>
+                        <div class="popup" id="delete-popup">
+                            <h3>User Delete</h3>
+                            <p>Are you sure want to delete?</p>
+                            <div class="cancel-confirm">
+                                <button class="confirm" type="submit" onsubmit="deleteUser()">Confirm</button>
+                                <button class="cancel" onclick="closePopup('delete-popup')">Cancel</button>
+                            </div>
+                        </div>
+                        <button class="btn delete-btn" type="button" onclick="openPopup('delete-popup')">Delete User</button>
+                    </div>
+                </form>
+                <form class="make-admin">
+                    <div class="form-group">
+                        <input type="number" name="adminUserId" placeholder="User ID to Promote" class="input-field" required>
+                        <button class="btn submit-btn" type="submit">Make Admin</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Book Management Panel -->
+            <div class="dashboard-card">
+                <h2>Book Management</h2>
+                <form class="add-book1">
+                    <div class="form-group">
+                        <input type="text" name="title" placeholder="Title" class="input-field" required>
+                        <input type="text" name="author" placeholder="Author" class="input-field" required>
+                        <input type="text" name="genre" placeholder="Genre" class="input-field" required>
+                        <input type="text" name="isbn_10" placeholder="ISBN 10" class="input-field" required>
+                        <input type="text" name="isbn_13" placeholder="ISBN13" class="input-field" required>
+                        <textarea name="summary" placeholder="Summary" class="input-field textarea-field" required></textarea>
+                        <input name="cover_image" type="text" placeholder="Image Url" class="input-field" required>
+                        <input name="book_count" type="number" placeholder="Book count" class="input-field" required>
+                        <div class="button-row">
+                            <button class="btn clear-btn" onclick="clearInputs()">Clear</button>
+                            <button class="btn submit-btn" type="submit" onsubmit="addBook1()">Add Book</button>
+                        </div>
+                    </div>
+                </form>
+                <form class="add-book2">
+                    <div class="form-group">
+                        <p class="book-exist">If the book exists</p>
+                        <input type="number" name="bookId" placeholder="Book ID" class="input-field" required>
+                        <input type="number" name="count" placeholder="Book count" class="input-field" required>
+                        <div class="button-row">
+                            <button class="btn clear-btn" onclick="clearInputs()">Clear</button>
+                            <button class="btn submit-btn" type="submit" onsubmit="addBook2()">Add Book</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Announcement Panel -->
+            <div class="dashboard-card">
+                <h2>Announcements</h2>
+                <form class="add-announcement">
+                    <div class="form-group">
+                        <textarea name="announcement" placeholder="Announcement" class="input-field textarea-field" required></textarea>
+                        <div class="button-row">
+                            <button class="btn clear-btn" onclick="clearInputs()">Clear</button>
+                            <button class="btn submit-btn" type="submit">Add Announcement</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Reservation Lookup Panel -->
+            <div class="dashboard-card">
+                <h2>Reservation Lookup</h2>
+                <form class="reservation-lookup">
+                    <div class="form-group">
+                        <input type="text" name="reservationId" placeholder="Reservation ID" class="input-field" required>
+                        <button class="btn submit-btn" type="submit">Find Reservation</button>
+                    </div>
+                </form>
+                <div class="reservation-details" style="display:none;">
+                    <p><strong>Book Name:</strong> <span id="reserved-book-name"></span></p>
+                    <p><strong>User ID:</strong> <span id="reserved-user-id"></span></p>
+                </div>
+            </div>
+
+            <!-- Book Return Panel -->
+            <div class="dashboard-card">
+                <h2>Book Return</h2>
+                <form class="return-lookup">
+                    <div class="form-group">
+                        <input type="number" name="returnUserId" placeholder="User ID" class="input-field" required>
+                        <button class="btn submit-btn" type="submit">Show Borrowed Books</button>
+                    </div>
+                </form>
+                <div class="borrowed-books-list" style="display:none;">
+                    <p><strong>Borrowed Books:</strong></p>
+                    <ul id="borrowed-books" class="borrowed-books-ul"></ul>
+                    <form class="return-book-form">
+                        <input type="number" name="returnBookId" placeholder="Book ID to return" class="input-field" required>
+                        <input type="date" name="returnDate" class="input-field" required>
+                        <button class="btn submit-btn" type="submit">Return Book</button>
+                    </form>
+                    <div class="fine-info" style="display:none;">
+                        <p><strong>Fine Due:</strong> <span id="fine-amount"></span></p>
                     </div>
                 </div>
-                <button class="btn delete-btn" type="button" onclick="openPopup('delete-popup')">Delete User</button>
             </div>
-        </form>
-        
-        <form class="add-book1">
-            <div class="form-group">
-                <input type="text" name="title" placeholder="Title" class="input-field" required>
-                <input type="text" name="author" placeholder="Author" class="input-field" required>
-                <input type="text" name="genre" placeholder="Genre" class="input-field" required>
-                <input type="text" name="isbn_10" placeholder="ISBN 10" class="input-field" required>
-                <input type="text" name="isbn_13" placeholder="ISBN13" class="input-field" required>
-                <textarea name="summary" placeholder="Summary" class="input-field textarea-field" required></textarea>
-                <input name="cover_image" type="text" placeholder="Image Url" class="input-field" required>
-                <input name="book_count" type="number" placeholder="book count" class="input-field" required>
-                <div class="button-row">
-                    <button class="btn clear-btn" onclick="clearInputs()">Clear</button>
-                    <button class="btn submit-btn" type="submit" onsubmit="addBook1()">Add Book</button>
+
+            <!-- Fine Rate Update Panel -->
+            <div class="dashboard-card">
+                <h2>Fine Rate</h2>
+                <form class="fine-rate-form">
+                    <div class="form-group">
+                        <input type="number" name="fineRate" placeholder="Fine per extra day" class="input-field" required>
+                        <button class="btn submit-btn" type="submit">Update Fine Rate</button>
+                    </div>
+                </form>
+                <div class="current-fine-rate">
+                    <p><strong>Current Fine Rate:</strong> <span id="current-fine-rate">0</span> per day</p>
                 </div>
             </div>
-        </form>
-        
-        <form class="add-book2">
-            <div class="form-group">
-                <p class="book-exist">If the book exists</p>
-                <input type="number" name="bookId" placeholder="Book ID" class="input-field" required>
-                <input type="number" name="count" placeholder="Book count" class="input-field" required>
-                <div class="button-row">
-                    <button class="btn clear-btn" onclick="clearInputs()">Clear</button>
-                    <button class="btn submit-btn" type="submit" onsubmit="addBook2()">Add Book</button>
-                </div>
-            </div>
-        </form>
-        
-        <form class="add-announcement">
-            <div class="form-group">
-                <textarea name="announcement" placeholder="Announcement" class="input-field textarea-field" required></textarea>
-                <div class="button-row">
-                    <button class="btn clear-btn" onclick="clearInputs()">Clear</button>
-                    <button class="btn submit-btn" type="submit">Add Announcement</button>
-                </div>
-            </div> 
-        </form>       
+        </div>
     </div>
     <script src="../functions/global.js"></script>
     <script src="library_page.js"></script>

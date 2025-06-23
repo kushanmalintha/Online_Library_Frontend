@@ -1,7 +1,7 @@
 // Function to display search results
 function displaySearchResults() {
-    // Get the search results from local storage
-    const data = localStorage.getItem('searchResults');
+    // Get the search results from session storage
+    const data = sessionStorage.getItem('searchResults');
     console.log(data);
 
     // Check if data is null or empty string

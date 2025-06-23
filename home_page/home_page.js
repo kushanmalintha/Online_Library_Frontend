@@ -14,21 +14,23 @@ function checkAdminStatus(callback) {
     const userId = getUserId();
     const token = getAccessToken();
 
-    fetch('http://localhost:2000/api/admincheck', {
+    handleAuthFetch(fetch('http://localhost:2000/api/admincheck', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${token}`
         },
         body: JSON.stringify({ userId: userId })
-    })
+    }))
     .then(res => res.json())
     .then(data => {
         callback(data);
     })
     .catch(err => {
-        console.error("Error during admin check:", err);
-        alert("Unable to verify admin status. Please try again later.");
+        if (err !== 'Unauthorized') {
+            console.error("Error during admin check:", err);
+            alert("Unable to verify admin status. Please try again later.");
+        }
     });
 }
 
@@ -60,13 +62,13 @@ formSetting.addEventListener('submit', event => {
 function displayAnnouncements() {
     const token = getAccessToken();
 
-    fetch('http://localhost:2000/api/announcement/get', {
+    handleAuthFetch(fetch('http://localhost:2000/api/announcement/get', {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${token}`
         },
-    })
+    }))
     .then(res => {
         if (!res.ok) {
             throw new Error('No announcements found');
@@ -77,8 +79,10 @@ function displayAnnouncements() {
         updateAnnouncements(data);
     })
     .catch(err => {
-        console.error("Error during announcement fetch:", err);
-        updateAnnouncements([]);
+        if (err !== 'Unauthorized') {
+            console.error("Error during announcement fetch:", err);
+            updateAnnouncements([]);
+        }
     });
 }
 
@@ -107,7 +111,7 @@ function feedback() {
         return;
     }
 
-    fetch('http://localhost:2000/api/feedback/write', {
+    handleAuthFetch(fetch('http://localhost:2000/api/feedback/write', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -116,7 +120,7 @@ function feedback() {
         body: JSON.stringify({
             feedback: feedbackContent
         })
-    })
+    }))
     .then(res => {
         if (!res.ok) {
             throw new Error('Failed to submit feedback');
@@ -132,8 +136,10 @@ function feedback() {
         }
     })
     .catch(err => {
-        console.error("Error during feedback submission:", err);
-        alert("An error occurred. Please try again later.");
+        if (err !== 'Unauthorized') {
+            console.error("Error during feedback submission:", err);
+            alert("An error occurred. Please try again later.");
+        }
     });
 }
 
@@ -170,21 +176,23 @@ function handleSearch() {
 function getSearchBooks(name, type) {
     const token = getAccessToken();
 
-    fetch('http://localhost:2000/api/books', {
+    handleAuthFetch(fetch('http://localhost:2000/api/books', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${token}`
         },
         body: JSON.stringify({ name, type })
-    })
+    }))
     .then(res => res.json())
     .then(data => {
-        // Store the search results in local storage
-        localStorage.setItem('searchResults', JSON.stringify(data.bookDetails));
+        // Store the search results in session storage
+        sessionStorage.setItem('searchResults', JSON.stringify(data.bookDetails));
     })
     .catch(err => {
-        console.error("Error during search:", err);
-        alert("Error searching books. Please try again.");
+        if (err !== 'Unauthorized') {
+            console.error("Error during search:", err);
+            alert("Error searching books. Please try again.");
+        }
     });
 }

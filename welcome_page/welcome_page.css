@@ -1,8 +1,15 @@
 html, body {
     height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
 }
 
 body {
+    min-height: 100vh;
+    min-width: 100vw;
+    box-sizing: border-box;
     background-image: url("https://img.freepik.com/free-photo/book-turning-pages_1150-146.jpg?w=900&t=st=1723660283~exp=1723660883~hmac=36b8bce0e841ed57b9253bb7a896517eeb66a29719dbdb9befd516fecc0523d2");
     background-repeat: no-repeat;
     background-size: cover;
