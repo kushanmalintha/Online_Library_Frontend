@@ -16,11 +16,6 @@ body {
     align-items: center;
 }
 
-.setting-container {
-    margin: 5px;
-    justify-content: end;
-}
-
 .title, .search-container {
     display: flex;
     align-items: center;
@@ -72,11 +67,12 @@ body {
     right: 20px;
 }
 
-.search-icon.fa-search:hover,.search-icon.fa-sliders-h:hover {
+.search-icon.fa-search:hover,
+.search-icon.fa-sliders-h:hover {
     opacity: 0.8;
 }
 
-.menu-wrap{
+.menu-wrap {
     position: absolute;
     top: 100%;
     right: 5%;
@@ -119,49 +115,48 @@ hr {
     display: flex;
     flex-direction: column;
     align-items: center;
+    border-radius: 24px;
+    box-shadow: 0 4px 24px rgba(32,30,67,0.10);
+    padding: 40px 60px 30px 60px;
+    margin: 40px auto 0 auto;
+    max-width: 700px;
+    min-width: 350px;
 }
 
 .aboutus {
     font-size: 40px;
-    font-weight: bolder;
-    margin: 150px 0 20px 50px;
+    font-weight: 900;
+    margin: 0 0 30px 0;
+    color: #134B70;
+    letter-spacing: 2px;
+    text-shadow: 0 2px 8px #e0e7ff;
+    text-align: center;
 }
 
 .details {
     display: flex;
     flex-direction: column;
-    margin-left: 150px;
+    gap: 10px;
+    margin: 0;
+    width: 100%;
 }
 
-.container {
+.container, .container-announcement {
     display: flex;
     align-items: center;
-    margin-bottom: 10px;
+    background: #f0f4ff;
+    border-radius: 12px;
+    padding: 10px 15px;
+    box-shadow: 0 2px 8px rgba(32,30,67,0.06);
+    margin-bottom: 0;
+    color: #134B70;
+    font-weight: 600;
+    font-size: 18px;
 }
 
 .container-announcement {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
     color: #134B70;
     font-weight: bold;
-}
-
-.feedback {
-    width: 500px;
-    border-radius: 10px;
-    padding: 10px;
-}
-
-.submit {
-    width: 80px;
-    font-size: 15px;
-    background: #201E43;
-    color: #FFFFFF;
-    font-weight: bold;
-    margin: 10px 0 50px 400px;
-    border-radius: 20px;
-    padding: 5px;
 }
 
 h3 {
@@ -177,9 +172,109 @@ h3 {
          0    1px 0 #FFFFFF,
         -1px  1px 0 #FFFFFF,
         -1px  0   0 #FFFFFF;
+    min-width: 110px;
+    font-size: 20px;
 }
 
-label {
+label, .details label, .details a {
     color: #134B70;
     font-weight: bold;
+    font-size: 18px;
+    text-decoration: none;
+}
+
+.feedback {
+    width: 100%;
+    border-radius: 10px;
+    padding: 12px;
+    font-size: 16px;
+    margin-top: 10px;
+    border: 1px solid #d1d5db;
+    background: #f0f4ff;
+    resize: none;
+    box-sizing: border-box;
+}
+
+.submit {
+    width: 120px;
+    font-size: 17px;
+    background: linear-gradient(90deg, #134B70 25%, #201E43 75%);
+    color: #FFFFFF;
+    font-weight: bold;
+    margin: 18px 0 0 auto;
+    border-radius: 20px;
+    padding: 8px 0;
+    border: none;
+    box-shadow: 0 2px 8px rgba(32,30,67,0.10);
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+}
+
+.submit:hover {
+    background: linear-gradient(90deg, #201E43 25%, #134B70 75%);
+    transform: scale(1.05);
+}
+
+/* ------------------ User Button & Menu ------------------ */
+.user-container {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+}
+
+.user-button {
+    background: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
+}
+
+.user-button i {
+    font-size: 32px;
+    color: #201E43;
+    transition: color 0.2s, transform 0.2s;
+}
+
+.user-button:hover {
+    background: #f0f4ff;
+    box-shadow: 0 2px 8px rgba(32,30,67,0.10);
+    transform: scale(1.1) rotate(10deg);
+}
+
+.user-button:hover i {
+    color: #134B70;
+    transform: rotate(20deg) scale(1.15);
+}
+
+.user-menu {
+    position: absolute;
+    top: 50px;
+    right: 0;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 24px rgba(32,30,67,0.10);
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.4s ease;
+    width: 180px;
+    z-index: 100;
+}
+
+.user-menu.open {
+    max-height: 500px;
+}
+
+.user-item {
+    padding: 12px 20px;
+    color: #134B70;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.user-item:hover {
+    background-color: #f0f4ff;
 }

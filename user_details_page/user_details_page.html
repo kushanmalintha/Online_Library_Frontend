@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Details</title>
+    <link rel="stylesheet" href="user_details_page.css">
+    <link rel="icon" href="https://img.icons8.com/?size=128&id=Cjj3nZq8ZHXS&format=png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&family=Inter:ital,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="page">
+        <div class="box">
+            <h1 class="title">User Profile</h1>
+
+            <div class="detail-container">
+                <label>Username</label>
+                <input type="text" id="username" disabled>
+            </div>
+
+            <div class="detail-container">
+                <label>Email</label>
+                <input type="email" id="email" disabled>
+            </div>
+
+            <div class="detail-container">
+                <label>Phone Number</label>
+                <input type="tel" id="phone" disabled>
+            </div>
+
+            <div class="detail-container">
+                <label>Membership Date</label>
+                <input type="text" id="membership" disabled>
+            </div>
+
+            <div class="button-group">
+                <button class="edit-button" id="edit-btn" onclick="enableEdit()">Edit</button>
+                <div>
+                    <button class="save-button" id="save-btn" onclick="saveChanges()">Save</button>
+                    <button class="cancel-button" onclick="cancelChanges()">Cancel</button>
+                </div>
+            </div>
+
+            <img class="logo" src="https://img.icons8.com/?size=128&id=Cjj3nZq8ZHXS&format=png">
+            <h3 class="library_name">PHEONIX Library</h3>
+        </div>
+    </div>
+    <script src="user_details_page.js"></script>
+    <script src="../functions/global.js"></script>
+</body>
+</html>

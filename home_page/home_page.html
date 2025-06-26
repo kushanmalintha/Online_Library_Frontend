@@ -14,13 +14,17 @@
     <link rel="icon" href="https://img.icons8.com/?size=128&id=Cjj3nZq8ZHXS&format=png">
 </head>
 <body>
-    <div id="setting-container" class="setting-container" style="display: none;">
-        <form class="form">
-            <button class="settings" type="submit">
-                <span class="material-icons">settings</span>
-            </button> 
-        </form>
-    </div>           
+    <div id="user-container" class="user-container">
+        <button class="user-button" onclick="toggleUserMenu()">
+            <i class="fas fa-user"></i>
+        </button>
+        <div id="user-menu" class="user-menu">
+            <div class="user-item" onclick="goToUserDetails()">User Details</div>
+            <div class="user-item" onclick="goToHistory()">History</div>
+            <div class="user-item" onclick="signOut()">Sign Out</div>
+            <div id="settings-item" class="user-item" onclick="goToSettings()">Settings</div>
+        </div>
+    </div>          
     <div class="page1">
         <div class="title">
             <img class="logo" src="https://img.icons8.com/?size=128&id=Cjj3nZq8ZHXS&format=png">

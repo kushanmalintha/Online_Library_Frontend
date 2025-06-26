@@ -1,0 +1,120 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Inter", sans-serif;
+    background: url("https://img.freepik.com/free-photo/book-turning-pages_1150-146.jpg?w=900") center/cover no-repeat fixed;
+}
+
+.page {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box {
+    background-color: #FFFFFF;
+    background: transparent;
+    backdrop-filter: blur(55px);
+    width: 380px;
+    border-radius: 20px;
+    border: 4px solid #134B70;
+    backdrop-filter: blur(10px);
+    padding: 40px;
+    position: relative;
+}
+
+.title {
+    text-align: center;
+    color: #134B70;
+    font-size: 36px;
+    margin-bottom: 30px;
+}
+
+.detail-container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.detail-container label {
+    color: #201E43;
+    font-weight: bold;
+    margin-bottom: 6px;
+}
+
+.detail-container input {
+    padding: 10px;
+    border: 1px solid #d1d5db;
+    border-radius: 10px;
+    background-color: #f0f4ff;
+    font-size: 16px;
+}
+
+.detail-container input:disabled {
+    background-color: #e9ecef;
+    color: #6c757d;
+}
+
+.button-group {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+button {
+    padding: 8px 16px;
+    border-radius: 20px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.edit-button {
+    background: linear-gradient(90deg, #134B70, #201E43);
+    color: white;
+}
+
+.edit-button:hover {
+    opacity: 0.9;
+}
+
+.save-button {
+    background-color: #4caf50;
+    color: white;
+    display: none;
+}
+
+.save-button:hover {
+    background-color: #45a049;
+}
+
+.cancel-button {
+    background-color: #e53935;
+    color: white;
+}
+
+.cancel-button:hover {
+    background-color: #d32f2f;
+}
+
+.logo {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+.library_name {
+    position: absolute;
+    top: 15px;
+    left: 70px;
+    font-size: 20px;
+    background-image: linear-gradient(90deg, #134B70 25%, #201E43 75%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
+}
