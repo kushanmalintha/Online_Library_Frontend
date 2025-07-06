@@ -1,0 +1,22 @@
+name: Deploy Online Library Frontend
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Setup SSH key
+      run: |
+        echo "${{ secrets.ONLINE_LIBRARY }}" > key.pem
+        chmod 600 key.pem
+
+    - name: Rsync code to EC2
+      run: |
+        rsync -avz --exclude 'node_modules' --exclude '.git' --exclude '.env' -e "ssh -i key.pem" ./ ubuntu@ec2-3-106-221-209.ap-southeast-2.compute.amazonaws.com:~/OnlineLibraryFrontend
