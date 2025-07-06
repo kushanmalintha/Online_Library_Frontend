@@ -10,7 +10,7 @@ formLogin.addEventListener('submit', event => {
     const formData = new FormData(formLogin);
     const data = Object.fromEntries(formData.entries());
 
-    fetch('http://localhost:2000/api/auth/login', {
+    fetch(`${API_BASE_URL}/api/auth/login`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

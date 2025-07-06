@@ -8,7 +8,7 @@ function fetchUserData() {
     const token = getAccessToken();
     const userId = getUserId();
 
-    handleAuthFetch(fetch(`http://localhost:2000/api/users/getuser/${userId}`, {
+    handleAuthFetch(fetch(`${API_BASE_URL}/api/users/getuser/${userId}`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -56,7 +56,7 @@ function saveChanges() {
         phone_no: document.getElementById('phone').value
     };
 
-    handleAuthFetch(fetch(`http://localhost:2000/api/users/updateuser/${userId}`, {
+    handleAuthFetch(fetch(`${API_BASE_URL}/api/users/updateuser/${userId}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json',

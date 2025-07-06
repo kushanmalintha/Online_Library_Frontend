@@ -29,7 +29,7 @@ function handleSearch() {
 function getSearchBooks(name, type) {
     const token = getAccessToken();
 
-    handleAuthFetch(fetch('http://localhost:2000/api/books', {
+    handleAuthFetch(fetch(`${API_BASE_URL}/api/books`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -40,6 +40,7 @@ function getSearchBooks(name, type) {
         .then(res => res.json())
         .then(data => {
             sessionStorage.setItem('searchResults', JSON.stringify(data.bookDetails));
+            console.log("Search results:", data.bookDetails);
         })
         .catch(err => {
             if (err !== 'Unauthorized') {
@@ -85,7 +86,7 @@ function checkAdminStatus(callback) {
     const userId = getUserId();
     const token = getAccessToken();
 
-    handleAuthFetch(fetch('http://localhost:2000/api/admincheck', {
+    handleAuthFetch(fetch(`${API_BASE_URL}/api/admincheck`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -125,7 +126,7 @@ document.addEventListener("DOMContentLoaded", () => {
 function displayAnnouncements() {
     const token = getAccessToken();
 
-    handleAuthFetch(fetch('http://localhost:2000/api/announcement/get', {
+    handleAuthFetch(fetch(`${API_BASE_URL}/api/announcement/get`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -174,7 +175,7 @@ function feedback() {
         return;
     }
 
-    handleAuthFetch(fetch('http://localhost:2000/api/feedback/write', {
+    handleAuthFetch(fetch(`${API_BASE_URL}/api/feedback/write`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

@@ -35,7 +35,7 @@ function submitTransaction() {
     const bookId = book.book_id;
     const token = getAccessToken();
 
-    handleAuthFetch(fetch(`http://localhost:2000/api/transaction/${userId}/${bookId}`, {
+    handleAuthFetch(fetch(`${API_BASE_URL}/api/transaction/${userId}/${bookId}`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -67,7 +67,7 @@ function cancelReservation() {
     const book = JSON.parse(sessionStorage.getItem('selectedBook'));
     const bookId = book.book_id;
 
-    handleAuthFetch(fetch(`http://localhost:2000/api/reservation/delete/${reservationId}/${bookId}`, {
+    handleAuthFetch(fetch(`${API_BASE_URL}/api/reservation/delete/${reservationId}/${bookId}`, {
         method: 'DELETE',
         headers: {
             'Content-Type': 'application/json',

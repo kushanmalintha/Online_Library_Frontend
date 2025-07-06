@@ -37,7 +37,7 @@ formCheckAvailability.addEventListener('submit', event => {
     const book = JSON.parse(sessionStorage.getItem('selectedBook'));
     const bookId = book.book_id;
 
-    handleAuthFetch(fetch(`http://localhost:2000/api/availability/${bookId}`, {
+    handleAuthFetch(fetch(`${API_BASE_URL}/api/availability/${bookId}`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -78,7 +78,7 @@ function attachReserveListener() {
             const reserveButton = document.querySelector('.reserve');
             reserveButton.disabled = true;
 
-            handleAuthFetch(fetch(`http://localhost:2000/api/reserve/${userId}/${bookId}`, {
+            handleAuthFetch(fetch(`${API_BASE_URL}/api/reserve/${userId}/${bookId}`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

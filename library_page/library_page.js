@@ -52,7 +52,7 @@ function deleteUser() {
     const performedBy = getUserId();
     console.log(token);
 
-    handleAuthFetch(fetch(`http://localhost:2000/api/user/delete/${userId}?performedBy=${performedBy}`, {
+    handleAuthFetch(fetch(`${API_BASE_URL}/api/user/delete/${userId}?performedBy=${performedBy}`, {
         method: 'DELETE',
         headers: {
             'Content-Type': 'application/json',
@@ -89,7 +89,7 @@ function addBook1() {
     const performedBy = getUserId();
     data.performedBy = performedBy;
 
-    handleAuthFetch(fetch(`http://localhost:2000/api/addbooknew`, {
+    handleAuthFetch(fetch(`${API_BASE_URL}/api/addbooknew`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -127,7 +127,7 @@ function addBook2() {
 
     const payload = { count, performedBy };
 
-    handleAuthFetch(fetch(`http://localhost:2000/api/addbookexist/${bookId}`, {
+    handleAuthFetch(fetch(`${API_BASE_URL}/api/addbookexist/${bookId}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json',
@@ -164,7 +164,7 @@ function addAnnouncement() {
 
     const payload = { announcement, performedBy };
 
-    handleAuthFetch(fetch(`http://localhost:2000/api/announcement/write`, {
+    handleAuthFetch(fetch(`${API_BASE_URL}/api/announcement/write`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -194,7 +194,7 @@ if (formMakeAdmin) {
         const userId = formData.get('adminUserId');
         const token = getAccessToken();
         const performedBy = getUserId();
-        handleAuthFetch(fetch(`http://localhost:2000/api/user/makeadmin/${userId}?performedBy=${performedBy}`, {
+        handleAuthFetch(fetch(`${API_BASE_URL}/api/user/makeadmin/${userId}?performedBy=${performedBy}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
@@ -224,7 +224,7 @@ if (formReservationLookup) {
         const reservationId = formData.get('reservationId');
         const token = getAccessToken();
         const performedBy = getUserId();
-        handleAuthFetch(fetch(`http://localhost:2000/api/reservation/${reservationId}?performedBy=${performedBy}`, {
+        handleAuthFetch(fetch(`${API_BASE_URL}/api/reservation/${reservationId}?performedBy=${performedBy}`, {
             headers: { 'Authorization': `Bearer ${token}` }
         }))
         .then(res => res.json())
@@ -262,7 +262,7 @@ if (formReturnLookup) {
         const userId = formData.get('returnUserId');
         const token = getAccessToken();
         const performedBy = getUserId();
-        handleAuthFetch(fetch(`http://localhost:2000/api/borrowedbooks/${userId}?performedBy=${performedBy}`, {
+        handleAuthFetch(fetch(`${API_BASE_URL}/api/borrowedbooks/${userId}?performedBy=${performedBy}`, {
             headers: { 'Authorization': `Bearer ${token}` }
         }))
         .then(res => res.json())
@@ -308,7 +308,7 @@ if (formReturnBook) {
             alert('Please enter the Book ID to return.');
             return;
         }
-        handleAuthFetch(fetch(`http://localhost:2000/api/returnbook/${currentReturnUserId}`, {
+        handleAuthFetch(fetch(`${API_BASE_URL}/api/returnbook/${currentReturnUserId}`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -340,7 +340,7 @@ const formFineRate = document.querySelector('.fine-rate-form');
 const currentFineRateSpan = document.getElementById('current-fine-rate');
 
 function fetchCurrentFineRate() {
-    fetch('http://localhost:2000/api/finerate')
+    fetch(`${API_BASE_URL}/api/finerate`)
         .then(res => res.json())
         .then(data => {
             if (data.fineRate !== undefined) {
@@ -357,7 +357,7 @@ if (formFineRate) {
         const fineRate = formData.get('fineRate');
         const token = getAccessToken();
         const performedBy = getUserId();
-        fetch('http://localhost:2000/api/finerate', {
+        fetch(`${API_BASE_URL}/api/finerate`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',

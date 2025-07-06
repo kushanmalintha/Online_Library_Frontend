@@ -10,7 +10,7 @@ formSignup.addEventListener('submit', event => {
     const formData = new FormData(formSignup);
     const data = Object.fromEntries(formData.entries());
 
-    fetch('http://localhost:2000/api/auth/signup', {
+    fetch(`${API_BASE_URL}/api/auth/signup`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

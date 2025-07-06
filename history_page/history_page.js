@@ -6,7 +6,7 @@ function loadHistory() {
     const userId = getUserId();
     const token = getAccessToken();
 
-    handleAuthFetch(fetch(`http://localhost:2000/api/transactions/${userId}`, {
+    handleAuthFetch(fetch(`${API_BASE_URL}/api/transactions/${userId}`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -58,7 +58,7 @@ function renderSection(items, sectionId, isReturned) {
 function fetchBookDetails(bookId) {
     const token = getAccessToken();
 
-    return handleAuthFetch(fetch(`http://localhost:2000/api/books/${bookId}`, {
+    return handleAuthFetch(fetch(`${API_BASE_URL}/api/books/${bookId}`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
